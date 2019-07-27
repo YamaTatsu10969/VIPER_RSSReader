@@ -38,6 +38,7 @@ final class NewsListViewController: UIViewController {
     
     @objc func loadData() {
         // interactor　が、Operationのような役割
+        // interactor に追加していこう
         EntryOperation().getEntries { (fetchEntries) in
             self.entries = fetchEntries
             self.categories = [String](self.entries.keys)

@@ -225,8 +225,8 @@
 			children = (
 				BBC0769122E6AFB7008BB46A /* AppDelegate.swift */,
 				BBC86CF922EAE0F00007CA93 /* NewsListInteractorOutput.swift */,
-				BBC86CED22EAD2060007CA93 /* Modules */,
 				BB7B506822E6E519009B0D0A /* Common */,
+				BBC86CED22EAD2060007CA93 /* Modules */,
 				BBC86CCE22E831590007CA93 /* NewsDetailViewController */,
 				BBC0769822E6AFB9008BB46A /* Assets.xcassets */,
 				BBC0769A22E6AFB9008BB46A /* LaunchScreen.storyboard */,
