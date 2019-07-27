@@ -9,8 +9,8 @@
 import Foundation
 
 struct CategolizedEntry {
-    let categolizedEntry: KeyValuePairs<String, [Entry]>
-    init(_ data: KeyValuePairs<String, [Entry]>) {
-        categolizedEntry = data
+    let categolizedEntry: [(String, [Entry])]
+    init(_ categolizedEntry: KeyValuePairs<String, [Entry]>) {
+        self.categolizedEntry = Array(categolizedEntry)
     }
 }

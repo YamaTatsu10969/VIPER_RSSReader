@@ -33,5 +33,17 @@ protocol NewsListPresentation: class {
 }
 
 final class NewsLisPresenter: NewsListPresentation {
+    func viewDidLoad() {
+        
+    }
+    
+    func pullToRefresh() {
+        
+    }
+    
+    func dedSelectNews() {
+        
+    }
+    
     
 }

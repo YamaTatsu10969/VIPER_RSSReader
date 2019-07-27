@@ -18,9 +18,11 @@ final class EntryOperation {
     
     private var categories: [String] = []
     private var entries: [Entry] = []
-    private var entriesSeparatedByCategory: [String:[Entry]] = [:]
+    private var entriesSeparatedByCategory: [(category: String, entries: [Entry])] = []
+//    private var categorizedEntry: CategolizedEntry?
     
-    func getEntries(completion: @escaping ([String:[Entry]])->()) {
+    
+    func getCategorizedEntries(completion: @escaping ([(String, [Entry])])->()) {
         // fetchしたあとにセットする。
         fetchXMLData() {
             self.setCategories()
@@ -40,7 +42,8 @@ final class EntryOperation {
     
     func setEntries() {
         for category in categories {
-            entriesSeparatedByCategory.updateValue(getEntries(by: category), forKey: category)
+//            entriesSeparatedByCategory.updateValue(getEntries(by: category), forKey: category)
+            entriesSeparatedByCategory.append((category,getEntries(by: category)))
         }
     }
     
