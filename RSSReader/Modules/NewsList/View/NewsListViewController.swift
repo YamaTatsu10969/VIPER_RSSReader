@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol NewsListView {
-    func showErrorView()
-    func showNewsList()
+protocol NewsListView: class {
+    func showNewsList(categorizedEntriesTappleArray: [(category: String, entries: [Entry])])
+    func showErrorView(message: String)
 }
 
 /*
@@ -30,10 +30,12 @@ final class NewsListViewController: UIViewController {
     
     var categorizedEntriesTappleArray: [(category: String, entries: [Entry])]?
     
+    var presenter: NewsListPresentation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        loadData()
+        presenter.viewDidLoad()
     }
     
     private func setupView() {
@@ -47,26 +49,29 @@ final class NewsListViewController: UIViewController {
         refreshCtl.tintColor = UIColor.gray
         
         // ここがRxに置き換わりそう
-        refreshCtl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        // refreshCtl.addTarget(self, action: #selector(showNewsTitle), for: .valueChanged)
+    }
+}
+
+extension NewsListViewController: NewsListView {
+    func showNewsList(categorizedEntriesTappleArray: [(category: String, entries: [Entry])]) {
+        self.categorizedEntriesTappleArray = categorizedEntriesTappleArray
+        tableView.reloadData()
     }
     
-    @objc func loadData() {
-        // interactor　が、Operationのような役割
-        // interactor に追加していこう
-        EntryOperation().getCategorizedEntries { (fetchEntries) in
-            self.categorizedEntriesTappleArray = fetchEntries
-            self.tableView.reloadData()
-            self.refreshCtl.endRefreshing()
-        }
+    func showErrorView(message: String) {
+        Progress.showError(with: message)
     }
 }
 
 extension NewsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         guard let tmpEntries = categorizedEntriesTappleArray?[indexPath.section].entries else {
             return
         }
         let entry = tmpEntries[indexPath.row]
+        self.presenter.dedSelectNews(with: entry)
         let VC = NewsDetailViewController.instantiate()
         VC.entry = entry
         navigationController?.pushViewController(VC, animated: true)
@@ -92,7 +97,6 @@ extension NewsListViewController: UITableViewDataSource {
         }
         let entry = entries[indexPath.row]
         cell.title = entry.title
-        cell.selectionStyle = .none
         return cell
     }
     

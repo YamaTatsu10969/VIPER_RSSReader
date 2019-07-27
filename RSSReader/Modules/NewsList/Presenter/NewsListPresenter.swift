@@ -24,26 +24,48 @@ import RxSwift
  
  */
 protocol NewsListPresentation: class {
-    
-    
+    init(
+        view: NewsListView?,
+        router: NewsListWireframe,
+        interactor: NewsListUseCase,
+        xmlUrl: String
+    )
     
     func viewDidLoad()
     func pullToRefresh()
-    func dedSelectNews()
+    func dedSelectNews(with entry: Entry)
 }
 
-final class NewsLisPresenter: NewsListPresentation {
+final class NewsListPresenter: NewsListPresentation {
+    
+    weak var view: NewsListView?
+    var categorizedEntries: [(category: String, entries: [Entry])] = []
+    private let router: NewsListWireframe
+    private let interactor: NewsListUseCase
+    private let xmlUrl: String
+    
+    init(view: NewsListView?, router: NewsListWireframe, interactor: NewsListUseCase, xmlUrl: String) {
+        self.view = view
+        self.router = router
+        self.interactor = interactor
+        self.xmlUrl = xmlUrl
+    }
+    
     func viewDidLoad() {
-        
+        fetchEntry(xmlUrl: xmlUrl)
     }
     
     func pullToRefresh() {
-        
+        fetchEntry(xmlUrl: xmlUrl)
     }
     
-    func dedSelectNews() {
-        
+    func dedSelectNews(with entry: Entry) {
+        router.pushNewsDetailView(entry)
     }
     
-    
+    private func fetchEntry(xmlUrl: String) {
+        self.interactor.fetch(by: xmlUrl)
+    }
 }
+
+extension NewsListPresenter: NewsListInteractorOutput {}

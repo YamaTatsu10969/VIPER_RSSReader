@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67221B1F22EC485000593F01 /* EntryFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67221B1E22EC485000593F01 /* EntryFormatter.swift */; };
+		67221B2122EC4C1A00593F01 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67221B2022EC4C1A00593F01 /* RootRouter.swift */; };
 		BB5E4C1A22E7EBFE00A0E707 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5E4C1822E7EBFE00A0E707 /* NewsCell.swift */; };
 		BB5E4C1B22E7EBFE00A0E707 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB5E4C1922E7EBFE00A0E707 /* NewsCell.xib */; };
 		BB7B505922E6D3CC009B0D0A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7B505222E6D3CC009B0D0A /* Alamofire.framework */; };
@@ -45,7 +47,6 @@
 		BBC86CF822EADFBF0007CA93 /* NewsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC86CF722EADFBF0007CA93 /* NewsListPresenter.swift */; };
 		BBC86CFA22EAE0F00007CA93 /* NewsListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC86CF922EAE0F00007CA93 /* NewsListInteractorOutput.swift */; };
 		BBC86CFE22EAE62A0007CA93 /* XMLFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC86CFD22EAE62A0007CA93 /* XMLFormatter.swift */; };
-		BBC86D0022EAF8DB0007CA93 /* CategolizedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC86CFF22EAF8DB0007CA93 /* CategolizedEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		67221B1E22EC485000593F01 /* EntryFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryFormatter.swift; sourceTree = "<group>"; };
+		67221B2022EC4C1A00593F01 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		BB5E4C1822E7EBFE00A0E707 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		BB5E4C1922E7EBFE00A0E707 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		BB7B505022E6D38E009B0D0A /* Build */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Build; path = Carthage/Build; sourceTree = "<group>"; };
@@ -112,7 +115,6 @@
 		BBC86CF722EADFBF0007CA93 /* NewsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListPresenter.swift; sourceTree = "<group>"; };
 		BBC86CF922EAE0F00007CA93 /* NewsListInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListInteractorOutput.swift; sourceTree = "<group>"; };
 		BBC86CFD22EAE62A0007CA93 /* XMLFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLFormatter.swift; sourceTree = "<group>"; };
-		BBC86CFF22EAF8DB0007CA93 /* CategolizedEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategolizedEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				BB7B506522E6E458009B0D0A /* Extension */,
 				BBC86CC822E8135F0007CA93 /* Model */,
 				BBC86CE322E953850007CA93 /* Progress.swift */,
+				67221B2022EC4C1A00593F01 /* RootRouter.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -240,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				BBC86CC422E7FBEF0007CA93 /* Entry.swift */,
-				BBC86CFF22EAF8DB0007CA93 /* CategolizedEntry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +301,7 @@
 				BBC86CF122EAD2670007CA93 /* Router */,
 				BBC86CF222EAD26E0007CA93 /* View */,
 				BBC86CFD22EAE62A0007CA93 /* XMLFormatter.swift */,
+				67221B1E22EC485000593F01 /* EntryFormatter.swift */,
 			);
 			path = NewsList;
 			sourceTree = "<group>";
@@ -512,18 +515,19 @@
 				BB7B506722E6E4EB009B0D0A /* EntryOperation.swift in Sources */,
 				BBC86CDE22E85EA30007CA93 /* NSLayoutConstraint+.swift in Sources */,
 				BB7B506422E6E44A009B0D0A /* Storyboard+.swift in Sources */,
+				67221B1F22EC485000593F01 /* EntryFormatter.swift in Sources */,
 				BBC86CEA22E97ED60007CA93 /* NSAttributedString+.swift in Sources */,
 				BBC86CEC22E9858C0007CA93 /* UIView+.swift in Sources */,
 				BBC86CF822EADFBF0007CA93 /* NewsListPresenter.swift in Sources */,
 				BB7B506A22E6E7DA009B0D0A /* NewsListViewController.swift in Sources */,
 				BB5E4C1A22E7EBFE00A0E707 /* NewsCell.swift in Sources */,
+				67221B2122EC4C1A00593F01 /* RootRouter.swift in Sources */,
 				BBC86CDC22E84C330007CA93 /* UIImageView+Kingfisher.swift in Sources */,
 				BBC86CE422E953850007CA93 /* Progress.swift in Sources */,
 				BBC86CC722E80DA00007CA93 /* Array+.swift in Sources */,
 				BBC86CF422EAD2E20007CA93 /* NewsListRouter.swift in Sources */,
 				BBC86CD722E847E70007CA93 /* ImageCell.swift in Sources */,
 				BBC86CFE22EAE62A0007CA93 /* XMLFormatter.swift in Sources */,
-				BBC86D0022EAF8DB0007CA93 /* CategolizedEntry.swift in Sources */,
 				BBC86CE222E93CCA0007CA93 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

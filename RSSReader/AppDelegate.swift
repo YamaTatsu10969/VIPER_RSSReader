@@ -12,13 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private var xmlUrl = "https://www.apple.com/jp/newsroom/rss-feed.rss"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let VC = NewsListViewController.instantiate()
-        let navi = UINavigationController(rootViewController: VC)
-        self.window?.rootViewController = navi
-        self.window?.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let router = RootRouter(window: self.window!)
+        router.showRootScreen(xmlUrl: xmlUrl)
         return true
     }
 
