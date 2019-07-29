@@ -49,7 +49,7 @@ final class NewsListViewController: UIViewController {
         refreshCtl.tintColor = UIColor.gray
         
         // ここがRxに置き換わりそう
-        // refreshCtl.addTarget(self, action: #selector(showNewsTitle), for: .valueChanged)
+        // refreshCtl.addTarget(self, action: #selector(presenter.pullToRefresh), for: .valueChanged)
     }
 }
 
