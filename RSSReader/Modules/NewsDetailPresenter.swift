@@ -21,8 +21,8 @@ protocol NewsDetailPresentation: class {
 
 final class NewsDetailPresenter: NewsDetailPresentation {
     var view: NewsDetailView?
-    private let router: NewsDetailRouter
-    private let interactor: NewsDetailInteractor
+    private let router: NewsDetailWireframe
+    private let interactor: NewsDetailUsecase
     
     func viewDidLoad() {
         interactor.fetch()

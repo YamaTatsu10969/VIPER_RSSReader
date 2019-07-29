@@ -14,9 +14,12 @@ protocol NewsDetailWireframe: class {
 
 final class NewsDetailRouter: NewsDetailWireframe {
     
-    let view = NewsDetailViewController.instantiate()
-    let interactor = NewsDetailInteractor()
-    let router = NewsDetailPresenter()
+    func assembleModule(entry: Entry) -> UIViewController? {
+        let view = NewsDetailViewController.instantiate()
+        let interactor = NewsDetailInteractor()
+        let router = NewsDetailPresenter()
+        
+        let presenter = NewsDetailPresenter()
+    }
     
-    let presenter = NewsDetailPresenter()
 }
